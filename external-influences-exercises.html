@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IGCSE Business · 6.1 External Influences — Exercises</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f5f7fc;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      line-height: 1.65;
+      color: #1e2a3e;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 25px 40px -12px rgba(0, 20, 50, 0.25);
+      padding: 2rem 2.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0a1c3a;
+      border-left: 8px solid #2563eb;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 small {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #4b5e7a;
+      margin-top: 0.4rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0f2a4a;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 3px solid #dbeafe;
+    }
+
+    .exercise-section {
+      background: #f4f8ff;
+      border-radius: 2rem;
+      padding: 2rem 2.2rem;
+      margin: 1.5rem 0;
+      border: 2px solid #d6e4ff;
+    }
+
+    .exercise-block {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.6rem 1.8rem;
+      margin: 1.8rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e0ebfa;
+    }
+
+    .exercise-block h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f2a4a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .exercise-block h4 .ex-icon {
+      background: #2563eb;
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .mcq-option {
+      display: block;
+      background: #f8faff;
+      border: 1.5px solid #e0ebfa;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      margin: 0.6rem 0;
+      cursor: pointer;
+      transition: 0.15s;
+      font-weight: 500;
+    }
+
+    .mcq-option:hover { background: #eef4ff; border-color: #b9d0f0; }
+    .mcq-option.correct { background: #e3f5e9; border-color: #34a853; color: #1b5e20; }
+    .mcq-option.incorrect { background: #fde8e8; border-color: #e53e3e; color: #9b1c1c; }
+    .mcq-option.disabled { pointer-events: none; opacity: 0.85; }
+
+    .tf-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #eef3fa;
+    }
+
+    .tf-row:last-child { border-bottom: none; }
+
+    .tf-row span.tf-text {
+      flex: 1;
+      min-width: 200px;
+      font-weight: 500;
+      color: #1e2f4a;
+    }
+
+    .tf-btn {
+      background: white;
+      border: 1.5px solid #cbd9ed;
+      color: #1e3a6b;
+      font-weight: 600;
+      padding: 0.35rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: 0.15s;
+    }
+
+    .tf-btn:hover { border-color: #2563eb; color: #2563eb; }
+    .tf-btn.selected-true { background: #34a853; border-color: #34a853; color: white; }
+    .tf-btn.selected-false { background: #e53e3e; border-color: #e53e3e; color: white; }
+
+    .tf-feedback {
+      font-weight: 600;
+      font-size: 0.9rem;
+      min-width: 80px;
+      text-align: right;
+    }
+
+    .tf-feedback.correct { color: #1b5e20; }
+    .tf-feedback.incorrect { color: #9b1c1c; }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .match-item {
+      background: #f8faff;
+      border: 1.5px solid #e0ebfa;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      font-weight: 500;
+      color: #1e2f4a;
+      cursor: pointer;
+      transition: 0.15s;
+      user-select: none;
+    }
+
+    .match-item:hover { background: #eef4ff; }
+    .match-item.selected { background: #2563eb; color: white; border-color: #2563eb; }
+    .match-item.matched {
+      background: #e3f5e9;
+      border-color: #34a853;
+      color: #1b5e20;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .match-item.wrong-flash { animation: flashRed 0.5s; }
+
+    @keyframes flashRed {
+      0% { background: #fde8e8; border-color: #e53e3e; }
+      100% { background: #f8faff; border-color: #e0ebfa; }
+    }
+
+    .short-answer textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border-radius: 1rem;
+      border: 1.5px solid #d0ddeb;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+      min-height: 100px;
+      background: #fafcff;
+      color: #1e2a3e;
+      transition: 0.15s;
+    }
+
+    .short-answer textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px #2563eb18;
+    }
+
+    .model-answer {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem 1.3rem;
+      background: #f0f7f0;
+      border-radius: 1rem;
+      border-left: 4px solid #34a853;
+    }
+
+    .model-answer.show { display: block; }
+    .model-answer strong { color: #1b5e20; }
+
+    .exercise-btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.15s;
+      margin-top: 0.8rem;
+      margin-right: 0.6rem;
+    }
+
+    .exercise-btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    .exercise-btn.secondary {
+      background: white;
+      color: #2563eb;
+      border: 1.5px solid #2563eb;
+    }
+
+    .exercise-btn.secondary:hover { background: #eef4ff; }
+
+    .score-display {
+      background: #0f2a4a;
+      color: white;
+      border-radius: 1rem;
+      padding: 0.8rem 1.4rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .scenario-box {
+      background: #f0f5fe;
+      border-left: 6px solid #2563eb;
+      padding: 1.5rem 1.8rem;
+      border-radius: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .scenario-box h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #1e3a6b;
+      margin-bottom: 0.8rem;
+    }
+
+    .scenario-box ul { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6a7e9e;
+      border-top: 1px solid #dbe5f0;
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 1.2rem; }
+      h1 { font-size: 1.5rem; }
+      .match-grid { grid-template-columns: 1fr; }
+      .tf-row { flex-direction: column; align-items: flex-start; }
+      .tf-feedback { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <a href="external-influences-lesson.html" class="back-link">← Back to lesson</a>
+
+  <h1>
+    External Influences on Business — Exercises
+    <small>IGCSE Business · Topic 6.1 · Grade 12</small>
+  </h1>
+
+  <div class="exercise-section">
+    <h2>📝 Exercises & Practice Questions</h2>
+    <p style="color:#3b4f6e; margin-bottom: 1.5rem;">Test your understanding of external influences. Click to check answers.</p>
+
+    <!-- Exercise 1: MCQ -->
+    <div class="exercise-block">
+      <h4><span class="ex-icon">1</span> Multiple Choice</h4>
+
+      <div class="mcq" data-correct="b">
+        <p style="font-weight:600; margin-bottom:0.8rem;">1.1 Which of the following is an advantage of privatisation?</p>
+        <div class="mcq-option" data-opt="a">A) It protects essential services from profit-seeking</div>
+        <div class="mcq-option" data-opt="b">B) It can increase efficiency through the profit motive</div>
+        <div class="mcq-option" data-opt="c">C) It always reduces prices for consumers</div>
+        <div class="mcq-option" data-opt="d">D) It increases government control over strategic industries</div>
+      </div>
+
+      <div class="mcq" data-correct="d" style="margin-top:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.8rem;">1.2 A government raises interest rates. What is the most likely impact on businesses?</p>
+        <div class="mcq-option" data-opt="a">A) Borrowing becomes cheaper, so investment rises</div>
+        <div class="mcq-option" data-opt="b">B) Consumer spending increases rapidly</div>
+        <div class="mcq-option" data-opt="c">C) Exports become more expensive</div>
+        <div class="mcq-option" data-opt="d">D) Borrowing becomes more expensive, so investment may fall</div>
+      </div>
+
+      <div class="mcq" data-correct="a" style="margin-top:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.8rem;">1.3 Which law is most directly concerned with protecting workers from discrimination?</p>
+        <div class="mcq-option" data-opt="a">A) Employment law</div>
+        <div class="mcq-option" data-opt="b">B) Competition law</div>
+        <div class="mcq-option" data-opt="c">C) Marketing law</div>
+        <div class="mcq-option" data-opt="d">D) Environmental law</div>
+      </div>
+
+      <div class="mcq" data-correct="c" style="margin-top:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.8rem;">1.4 An MNC sets up a factory in a developing country. Which is a <em>disadvantage</em> for the host country?</p>
+        <div class="mcq-option" data-opt="a">A) Creation of new jobs</div>
+        <div class="mcq-option" data-opt="b">B) Transfer of technology</div>
+        <div class="mcq-option" data-opt="c">C) Profits may be sent back to the MNC's home country</div>
+        <div class="mcq-option" data-opt="d">D) Increased tax revenue</div>
+      </div>
+
+      <div class="mcq" data-correct="b" style="margin-top:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.8rem;">1.5 A business conducts an environmental audit. Who is <em>least</em> likely to use this audit?</p>
+        <div class="mcq-option" data-opt="a">A) Investors assessing environmental risk</div>
+        <div class="mcq-option" data-opt="b">B) A competitor trying to copy the business's products</div>
+        <div class="mcq-option" data-opt="c">C) A pressure group checking environmental claims</div>
+        <div class="mcq-option" data-opt="d">D) The government checking compliance with regulations</div>
+      </div>
+    </div>
+
+    <!-- Exercise 2: True or False -->
+    <div class="exercise-block">
+      <h4><span class="ex-icon">2</span> True or False</h4>
+
+      <div class="tf-row" data-answer="false">
+        <span class="tf-text">2.1 Nationalisation always leads to greater efficiency in an industry.</span>
+        <button class="tf-btn" data-choice="true">True</button>
+        <button class="tf-btn" data-choice="false">False</button>
+        <span class="tf-feedback"></span>
+      </div>
+
+      <div class="tf-row" data-answer="true">
+        <span class="tf-text">2.2 Fiscal policy involves government spending and taxation.</span>
+        <button class="tf-btn" data-choice="true">True</button>
+        <button class="tf-btn" data-choice="false">False</button>
+        <span class="tf-feedback"></span>
+      </div>
+
+      <div class="tf-row" data-answer="true">
+        <span class="tf-text">2.3 CSR can improve a business's reputation but may increase costs.</span>
+        <button class="tf-btn" data-choice="true">True</button>
+        <button class="tf-btn" data-choice="false">False</button>
+        <span class="tf-feedback"></span>
+      </div>
+
+      <div class="tf-row" data-answer="false">
+        <span class="tf-text">2.4 An ageing population only creates challenges for businesses, never opportunities.</span>
+        <button class="tf-btn" data-choice="true">True</button>
+        <button class="tf-btn" data-choice="false">False</button>
+        <span class="tf-feedback"></span>
+      </div>
+
+      <div class="tf-row" data-answer="true">
+        <span class="tf-text">2.5 International trade agreements can increase competition for domestic businesses.</span>
+        <button class="tf-btn" data-choice="true">True</button>
+        <button class="tf-btn" data-choice="false">False</button>
+        <span class="tf-feedback"></span>
+      </div>
+
+      <div class="tf-row" data-answer="false">
+        <span class="tf-text">2.6 Technological change only benefits businesses — it has no downsides.</span>
+        <button class="tf-btn" data-choice="true">True</button>
+        <button class="tf-btn" data-choice="false">False</button>
+        <span class="tf-feedback"></span>
+      </div>
+    </div>
+
+    <!-- Exercise 3: Matching -->
+    <div class="exercise-block">
+      <h4><span class="ex-icon">3</span> Matching — Key Terms</h4>
+      <p style="color:#3b4f6e; margin-bottom:0.5rem;">Click a term on the left, then click its matching description on the right.</p>
+
+      <div class="match-grid">
+        <div class="match-item" data-match="priv">Privatisation</div>
+        <div class="match-item" data-match="nat">Nationalisation</div>
+        <div class="match-item" data-match="mon">Monetary policy</div>
+        <div class="match-item" data-match="csr">Corporate social responsibility</div>
+        <div class="match-item" data-match="mnc">Multinational corporation</div>
+        <div class="match-item" data-match="env">Environmental audit</div>
+
+        <div class="match-item" data-match="csr">Business acting ethically beyond legal requirements</div>
+        <div class="match-item" data-match="mon">Central bank controlling interest rates & money supply</div>
+        <div class="match-item" data-match="priv">Transferring ownership from public to private sector</div>
+        <div class="match-item" data-match="env">Review of a business's environmental impact</div>
+        <div class="match-item" data-match="nat">Transferring ownership from private to public sector</div>
+        <div class="match-item" data-match="mnc">A company operating in multiple countries</div>
+      </div>
+    </div>
+
+    <!-- Exercise 4: Short Answer -->
+    <div class="exercise-block">
+      <h4><span class="ex-icon">4</span> Short Answer Questions</h4>
+
+      <div class="short-answer" style="margin-bottom:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.6rem;">4.1 Explain <strong>two</strong> ways a government might intervene to help businesses and encourage enterprise. (4 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m1">Show model answer</button>
+        <div id="m1" class="model-answer">
+          <strong>Model answer:</strong>
+          <ul>
+            <li><strong>Grants and subsidies:</strong> Governments can provide money to new or expanding businesses, reducing start-up costs and encouraging entrepreneurship.</li>
+            <li><strong>Tax breaks:</strong> Lower corporation tax or R&D tax credits increase retained profit, giving businesses more funds to invest and grow.</li>
+            <li>(Other acceptable: enterprise zones, deregulation, training schemes, loan guarantees, infrastructure investment.)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="short-answer" style="margin-bottom:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.6rem;">4.2 Explain how a rise in interest rates might affect a manufacturing business. (4 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m2">Show model answer</button>
+        <div id="m2" class="model-answer">
+          <strong>Model answer:</strong>
+          <ul>
+            <li><strong>Higher borrowing costs:</strong> If the business has loans or wants to invest in new machinery, the cost of finance rises, possibly delaying or cancelling investment.</li>
+            <li><strong>Lower consumer demand:</strong> Consumers with mortgages pay more, so they spend less — demand for manufactured goods may fall.</li>
+            <li><strong>Stronger currency (possible):</strong> Higher rates may attract foreign capital, raising the exchange rate — exports become more expensive and less competitive.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="short-answer" style="margin-bottom:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.6rem;">4.3 Explain <strong>three</strong> ways technological change can impact a business. (6 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m3">Show model answer</button>
+        <div id="m3" class="model-answer">
+          <strong>Model answer:</strong>
+          <ul>
+            <li><strong>Production efficiency:</strong> Automation and robotics can lower unit costs and increase output, improving competitiveness.</li>
+            <li><strong>Marketing reach:</strong> Social media and big data allow targeted advertising, reaching more customers at lower cost.</li>
+            <li><strong>New risks:</strong> Greater reliance on technology creates cyber security risks and requires ongoing investment in training and upgrades.</li>
+            <li>(Other acceptable: e-commerce, remote working, AI customer service, faster communication.)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="short-answer" style="margin-bottom:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.6rem;">4.4 Explain why a business might conduct an environmental audit and who might use it. (6 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m4">Show model answer</button>
+        <div id="m4" class="model-answer">
+          <strong>Model answer:</strong>
+          <ul>
+            <li><strong>Identify cost savings:</strong> An audit reveals areas of high energy or water use, allowing the business to reduce waste and cut costs.</li>
+            <li><strong>Ensure compliance:</strong> Helps the business meet environmental regulations and avoid fines.</li>
+            <li><strong>Improve reputation:</strong> Demonstrates commitment to sustainability, which can attract customers and investors.</li>
+            <li><strong>Users:</strong> The business itself, investors (assessing risk), government (checking compliance), pressure groups (holding business accountable), and customers (making informed choices).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 5: Case Study -->
+    <div class="exercise-block">
+      <h4><span class="ex-icon">5</span> Case Study — Recommend & Justify</h4>
+
+      <div class="scenario-box">
+        <h4>🏭 "PowerGen" — state-owned electricity company</h4>
+        <p>PowerGen is a state-owned electricity company in Country Z. It has been making losses for years, relies on government subsidies, and has been criticised for poor service and slow modernisation. The government is considering <strong>privatising</strong> PowerGen.</p>
+        <p>However, some argue that electricity is an essential service and should remain under public control to protect consumers from price rises.</p>
+      </div>
+
+      <div class="short-answer">
+        <p style="font-weight:600; margin-bottom:0.6rem;">5.1 Recommend and justify whether the government should privatise PowerGen. (8 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m5">Show model answer</button>
+        <div id="m5" class="model-answer">
+          <strong>Model answer:</strong>
+          <p><strong>Recommendation: Yes, privatise PowerGen.</strong></p>
+          <p><strong>Justification:</strong></p>
+          <ul>
+            <li><strong>Efficiency:</strong> Private ownership introduces the profit motive, encouraging cost control and better service — addressing the current losses and poor performance.</li>
+            <li><strong>Investment:</strong> The private sector can raise capital for modernisation without relying on taxpayers.</li>
+            <li><strong>Government revenue:</strong> Selling PowerGen raises funds that could be spent on health or education.</li>
+            <li><strong>Counter-argument:</strong> Electricity is essential, so privatisation could lead to higher prices. However, this can be managed through a regulator setting price caps.</li>
+            <li><strong>Conclusion:</strong> On balance, privatisation is likely to improve efficiency and service, provided a strong regulator protects consumers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="short-answer" style="margin-top:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.6rem;">5.2 Discuss the advantages and disadvantages of nationalising a loss-making private railway company. (8 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m6">Show model answer</button>
+        <div id="m6" class="model-answer">
+          <strong>Model answer:</strong>
+          <p><strong>Advantages of nationalisation:</strong></p>
+          <ul>
+            <li>Protects an essential service — railways can continue running even if unprofitable.</li>
+            <li>Government can invest in infrastructure without needing short-term profit.</li>
+            <li>Fares can be kept affordable for passengers.</li>
+            <li>Profits (if any) go to the public rather than shareholders.</li>
+          </ul>
+          <p><strong>Disadvantages of nationalisation:</strong></p>
+          <ul>
+            <li>Taxpayers bear the cost of losses and investment.</li>
+            <li>State-owned firms can be less efficient due to lack of competition.</li>
+            <li>Political interference may affect decisions.</li>
+            <li>May reduce innovation and customer focus.</li>
+          </ul>
+          <p><strong>Conclusion:</strong> Nationalisation may be justified if the railway is essential and private ownership has failed, but the government must ensure efficiency through clear targets and accountability.</p>
+        </div>
+      </div>
+
+      <div class="short-answer" style="margin-top:1.8rem;">
+        <p style="font-weight:600; margin-bottom:0.6rem;">5.3 A government wants to reduce youth unemployment. Recommend and justify <strong>two</strong> policies it could use, and explain the impact on businesses. (8 marks)</p>
+        <textarea placeholder="Type your answer here..."></textarea>
+        <button class="exercise-btn secondary show-model" data-target="m7">Show model answer</button>
+        <div id="m7" class="model-answer">
+          <strong>Model answer:</strong>
+          <p><strong>Recommendation 1: Subsidise apprenticeships and training schemes.</strong></p>
+          <ul>
+            <li><strong>Justification:</strong> Young people gain skills, making them more employable. Businesses receive funding to offset training costs.</li>
+            <li><strong>Impact on business:</strong> Lower recruitment and training costs; access to a skilled workforce; possible long-term loyalty from trained staff.</li>
+          </ul>
+          <p><strong>Recommendation 2: Cut taxes for businesses that hire young workers.</strong></p>
+          <ul>
+            <li><strong>Justification:</strong> Reduces the cost of hiring, encouraging firms to take on more young employees.</li>
+            <li><strong>Impact on business:</strong> Lower labour costs; higher profits; may encourage expansion and further hiring.</li>
+          </ul>
+          <p><strong>Conclusion:</strong> A combination of supply-side policies (training) and fiscal incentives (tax cuts) is likely to be most effective, benefiting both young people and businesses.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <div style="text-align:center; margin-top:1.5rem;">
+      <button class="exercise-btn" onclick="resetExercises()">🔄 Reset all exercises</button>
+      <div class="score-display" id="scoreDisplay" style="display:none;"></div>
+    </div>
+  </div>
+
+  <footer>
+    IGCSE Business · Exercises for Topic 6.1 External Influences<br>
+    Grade 12 · Exam preparation resource
+  </footer>
+</div>
+
+<script>
+  let mcqScore = 0;
+  let tfScore = 0;
+
+  // MCQ
+  document.querySelectorAll('.mcq').forEach(mcq => {
+    const correct = mcq.getAttribute('data-correct');
+    let answered = false;
+    mcq.querySelectorAll('.mcq-option').forEach(option => {
+      option.addEventListener('click', function() {
+        if (answered) return;
+        answered = true;
+        const chosen = this.getAttribute('data-opt');
+        if (chosen === correct) {
+          this.classList.add('correct');
+          mcqScore++;
+        } else {
+          this.classList.add('incorrect');
+          mcq.querySelectorAll('.mcq-option').forEach(opt => {
+            if (opt.getAttribute('data-opt') === correct) {
+              opt.classList.add('correct');
+            }
+          });
+        }
+        mcq.querySelectorAll('.mcq-option').forEach(opt => opt.classList.add('disabled'));
+        updateScore();
+      });
+    });
+  });
+
+  // True / False
+  document.querySelectorAll('.tf-row').forEach(row => {
+    const correct = row.getAttribute('data-answer');
+    const feedback = row.querySelector('.tf-feedback');
+    let answered = false;
+    row.querySelectorAll('.tf-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (answered) return;
+        answered = true;
+        const choice = this.getAttribute('data-choice');
+        if (choice === 'true') this.classList.add('selected-true');
+        else this.classList.add('selected-false');
+        if (choice === correct) {
+          feedback.textContent = '✔ Correct';
+          feedback.classList.add('correct');
+          tfScore++;
+        } else {
+          feedback.textContent = '✘ Incorrect';
+          feedback.classList.add('incorrect');
+        }
+        row.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+        updateScore();
+      });
+    });
+  });
+
+  // Matching
+  let selectedMatch = null;
+  let matchPairs = 0;
+  const totalPairs = 6;
+  document.querySelectorAll('.match-item').forEach(item => {
+    item.addEventListener('click', function() {
+      if (this.classList.contains('matched')) return;
+      if (!selectedMatch) {
+        selectedMatch = this;
+        this.classList.add('selected');
+      } else if (selectedMatch === this) {
+        this.classList.remove('selected');
+        selectedMatch = null;
+      } else {
+        if (selectedMatch.getAttribute('data-match') === this.getAttribute('data-match')) {
+          selectedMatch.classList.remove('selected');
+          selectedMatch.classList.add('matched');
+          this.classList.add('matched');
+          matchPairs++;
+          selectedMatch = null;
+          updateScore();
+        } else {
+          this.classList.add('wrong-flash');
+          selectedMatch.classList.add('wrong-flash');
+          const first = selectedMatch;
+          setTimeout(() => {
+            first.classList.remove('wrong-flash');
+            this.classList.remove('wrong-flash');
+          }, 500);
+          first.classList.remove('selected');
+          selectedMatch = null;
+        }
+      }
+    });
+  });
+
+  // Show model answers
+  document.querySelectorAll('.show-model').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const target = document.getElementById(this.getAttribute('data-target'));
+      if (target) {
+        target.classList.toggle('show');
+        this.textContent = target.classList.contains('show')
+          ? 'Hide model answer'
+          : 'Show model answer';
+      }
+    });
+  });
+
+  // Score
+  function updateScore() {
+    const total = document.querySelectorAll('.mcq').length + document.querySelectorAll('.tf-row').length + totalPairs;
+    const score = mcqScore + tfScore + matchPairs;
+    const display = document.getElementById('scoreDisplay');
+    if (display) {
+      display.style.display = 'inline-block';
+      display.textContent = `Score: ${score} / ${total}`;
+    }
+  }
+
+  // Reset
+  function resetExercises() {
+    mcqScore = 0;
+    tfScore = 0;
+    matchPairs = 0;
+    selectedMatch = null;
+
+    document.querySelectorAll('.mcq').forEach(mcq => {
+      mcq.querySelectorAll('.mcq-option').forEach(opt => {
+        opt.classList.remove('correct', '
